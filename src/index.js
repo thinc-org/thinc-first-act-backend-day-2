@@ -19,8 +19,6 @@ app.get('/course/:id', CourseController.getCourse);
 
 app.post('/course', CourseController.createCourse);
 
-app.patch('/course/:id', CourseController.editCourse);
-
 app.delete('/course/:id', CourseController.deleteCourse);
 
 app.listen(port, () => {

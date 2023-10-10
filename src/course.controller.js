@@ -41,20 +41,6 @@ function createCourse(req, res) {
 	return res.json(req.body)
 }
 
-// Edit course
-function editCourse(req, res) {
-	const course = fakeDb.find((v) => v.courseNo === req.params.id)
-	if (!course) {
-		return res.status(404).end()
-	}
-	Object.entries(req.body).forEach(([key, value]) => {
-		if (key in course) {
-			course[key] = value
-		}
-	})
-	return res.json(course)
-}
-
 // Delete course
 function deleteCourse(req, res) {
 	const courseIdx = fakeDb.findIndex((v) => v.courseNo === req.params.id)

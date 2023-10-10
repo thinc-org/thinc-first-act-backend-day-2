@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "course",
-    "dateExported": "2023-10-10T18:41:27.707Z",
+    "dateExported": "2023-10-10T19:55:32.276Z",
     "version": "1.1",
     "folders": [],
     "requests": [
@@ -54,31 +54,6 @@
             "body": {
                 "type": "json",
                 "raw": "{\n  \"courseNo\": \"0123105\",\n  \"abbrName\": \"THAI WRIT WORK\",\n  \"courseNameTh\": \"การเขียนภาษาไทยในที่ทำงาน\",\n  \"courseNameEn\": \"THAI WRITING IN WORKPLACE\",\n  \"department\": \"สถาบันภาษาไทยสิรินธร\",\n  \"credit\": 3\n}",
-                "form": []
-            },
-            "tests": []
-        },
-        {
-            "_id": "46cac78c-d21c-4572-b9ae-c5fa2646a84c",
-            "colId": "3623d716-3b8f-4cdd-b059-d84950083ee0",
-            "containerId": "",
-            "name": "Edit course",
-            "url": "http://127.0.0.1:3000/course/{id}",
-            "method": "PATCH",
-            "sortNum": 40000,
-            "created": "2023-10-10T18:08:10.013Z",
-            "modified": "2023-10-10T18:41:15.423Z",
-            "headers": [],
-            "params": [
-                {
-                    "name": "id",
-                    "value": "0123105",
-                    "isPath": true
-                }
-            ],
-            "body": {
-                "type": "json",
-                "raw": "{\n  \"abbrName\": \"THAI WRIT WORKSSS\"\n}",
                 "form": []
             },
             "tests": []
