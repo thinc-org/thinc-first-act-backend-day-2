@@ -1,8 +1,8 @@
+import dotenv from 'dotenv'
+dotenv.config();
 import express from 'express'
 import CourseController from './course.controller.js'
-import dotenv from 'dotenv'
 
-dotenv.config();
 
 const app = express();
 const port = process.env.PORT;

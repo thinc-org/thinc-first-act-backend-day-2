@@ -1,4 +1,4 @@
-const fakeDb = []
+import Repository from './repository.js'
 
 // Example object
 //{
@@ -12,44 +12,55 @@ const fakeDb = []
 
 
 // Get courses
-function getCourses(req, res) {
-	return res.json(fakeDb)
+async function getCourses(req, res) {
+	const courses = await Repository.getCourses()
+
+	res.json(courses)
 }
 
 // Get course
-function getCourse(req, res) {
-	const course = fakeDb.find((v) => v.courseNo === req.params.id)
-	if (!course) {
+async function getCourse(req, res) {
+	const course = await Repository.getCourseById(req.params.id);
+	if (course.length == 0) {
 		return res.status(404).end()
 	}
-	return res.json(course)
+	res.json(course[0])
 }
 
 // Create course
-function createCourse(req, res) {
+async function createCourse(req, res) {
 	const validBody = validateBody(req.body)
 	if(!validBody) {
 		return res.status(400).end()
 	}
-	const course = fakeDb.find((v) => v.courseNo === req.body.courseNo)
-	if (course) {
-		return res.status(409).send("Course already exist")
+	
+	const departmentName = req.body.department
+	var department = await Repository.getDepartmentByName(departmentName)
+	if (!department.length) {
+		department = await Repository.createDepartment(departmentName)
 	}
 
-	fakeDb.push(req.body)
-	
-	return res.json(req.body)
+	req.body['departmentId'] = department[0].id
+	try {
+		const course = (await Repository.createCourse(req.body))[0]
+
+		course.department = departmentName
+
+		return res.json(course)
+	} catch {
+		return res.status(409).send("Course already exist")
+	}
 }
 
 // Delete course
-function deleteCourse(req, res) {
-	const courseIdx = fakeDb.findIndex((v) => v.courseNo === req.params.id)
-	if (courseIdx == -1) {
+async function deleteCourse(req, res) {
+	const course = await Repository.getCourseById(req.params.id);
+	if (course.length == 0) {
 		return res.status(404).end()
 	}
-	const ret = fakeDb.splice(courseIdx, 1)[0]
-
-	return res.json(ret);
+	await Repository.deleteCourseById(req.params.id)
+	
+	res.json(course[0])
 }
 
 function validateBody(obj) {
@@ -81,6 +92,5 @@ export default {
 	getCourse,
 	getCourses,
 	createCourse,
-	editCourse,
 	deleteCourse,
 }
