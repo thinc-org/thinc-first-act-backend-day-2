@@ -1,0 +1,107 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "course",
+    "dateExported": "2023-10-10T18:41:27.707Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "082fdef6-ef87-4294-a06c-d732ed2a48dd",
+            "colId": "3623d716-3b8f-4cdd-b059-d84950083ee0",
+            "containerId": "",
+            "name": "Get courses",
+            "url": "http://127.0.0.1:3000/course",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-10-10T18:03:51.143Z",
+            "modified": "2023-10-10T18:04:02.680Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "dd725881-021f-4177-9045-c4c0b0caf69d",
+            "colId": "3623d716-3b8f-4cdd-b059-d84950083ee0",
+            "containerId": "",
+            "name": "Get course",
+            "url": "http://127.0.0.1:3000/course/{id}",
+            "method": "GET",
+            "sortNum": 25000,
+            "created": "2023-10-10T18:09:48.935Z",
+            "modified": "2023-10-10T18:40:33.034Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "id",
+                    "value": "0123105",
+                    "isPath": true
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "0882fd97-cf0a-40be-9377-e62b6b22d31e",
+            "colId": "3623d716-3b8f-4cdd-b059-d84950083ee0",
+            "containerId": "",
+            "name": "Create course",
+            "url": "http://127.0.0.1:3000/course",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2023-10-10T18:07:47.325Z",
+            "modified": "2023-10-10T18:38:12.736Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"courseNo\": \"0123105\",\n  \"abbrName\": \"THAI WRIT WORK\",\n  \"courseNameTh\": \"การเขียนภาษาไทยในที่ทำงาน\",\n  \"courseNameEn\": \"THAI WRITING IN WORKPLACE\",\n  \"department\": \"สถาบันภาษาไทยสิรินธร\",\n  \"credit\": 3\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "46cac78c-d21c-4572-b9ae-c5fa2646a84c",
+            "colId": "3623d716-3b8f-4cdd-b059-d84950083ee0",
+            "containerId": "",
+            "name": "Edit course",
+            "url": "http://127.0.0.1:3000/course/{id}",
+            "method": "PATCH",
+            "sortNum": 40000,
+            "created": "2023-10-10T18:08:10.013Z",
+            "modified": "2023-10-10T18:41:15.423Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "id",
+                    "value": "0123105",
+                    "isPath": true
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"abbrName\": \"THAI WRIT WORKSSS\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "3a4f46d0-5898-4e1c-b555-6e4dcf8a7eef",
+            "colId": "3623d716-3b8f-4cdd-b059-d84950083ee0",
+            "containerId": "",
+            "name": "Delete course",
+            "url": "http://127.0.0.1:3000/course/{id}",
+            "method": "DELETE",
+            "sortNum": 50000,
+            "created": "2023-10-10T18:08:40.249Z",
+            "modified": "2023-10-10T18:28:42.997Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "id",
+                    "value": "0123105",
+                    "isPath": true
+                }
+            ],
+            "tests": []
+        }
+    ]
+}
