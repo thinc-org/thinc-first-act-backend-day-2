@@ -81,6 +81,5 @@ export default {
 	getCourse,
 	getCourses,
 	createCourse,
-	editCourse,
 	deleteCourse,
 }
